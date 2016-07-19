@@ -25,7 +25,7 @@ class Course(models.Model):
         'Aprovado', default=False, blank=True
     )
     category = models.ForeignKey(
-        Category, verbose_name='Categoria'
+        Category, verbose_name='Categoria', related_name='courses'
     )
     start_date = models.DateField(
         'Início', blank=True, null=True

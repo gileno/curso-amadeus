@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ category }}</h1>
+{% for course in courses %}
+<hr>
+<h2><a href="{% url 'courses:course' course.slug %}">{{ course }}</a></h2>
+<p>
+  <strong>Categoria</strong>: {{ course.category }}<br>
+  <strong>Início</strong>: {{ course.start_date|date:"d/m/Y"|default:"Não definida" }}<br>
+</p>
+{{ course.description|linebreaks }}
+{% endfor %}
+{% endblock %}
