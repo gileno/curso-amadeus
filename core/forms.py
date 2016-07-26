@@ -8,7 +8,10 @@ class ContactForm(forms.Form):
     name = forms.CharField(label='Nome')
     email = forms.EmailField(label='E-mail')
     message = forms.CharField(label='Mensagem', widget=forms.Textarea())
-    # 
+    #
     # def __init__(self, *args, **kwargs):
     #     super(ContactForm, self).__init__(*args, **kwargs)
     #     self.fields['name'].widget.attrs['class'] = 'form-control'
+
+    # def clean(self):
+    #     raise forms.ValidationError('Error Geral')

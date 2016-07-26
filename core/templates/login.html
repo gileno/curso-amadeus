@@ -1,0 +1,39 @@
+{% extends "index.html" %}
+
+{% load widget_tweaks %}
+
+{% block title %}
+    Entrar | {{ block.super }}
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h1>Entrar</h1>
+        <form class="form-horizontal" action="" method="post">
+            {% csrf_token %}
+            {% for error in form.non_field_errors %}
+            <div class="alert alert-danger">
+                {{ error }}
+            </div>
+            {% endfor %}
+            {% for field in form %}
+            <div class="form-group{% if field.errors %} has-error{% endif %}">
+                <label for="{{ field.auto_id }}" class="col-sm-4 control-label">{{ field.label }}</label>
+                <div class="col-sm-8">
+                  {% render_field field class='form-control' %}
+                  {% for error in field.errors %}
+                  <span class="help-block">{{ error }}</span>
+                  {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-8">
+                  <button type="submit" class="btn btn-primary">Entrar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

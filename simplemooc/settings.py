@@ -37,10 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    # libs
     'widget_tweaks',
-
+    # apps
     'core',
+    'accounts',
     'courses',
 ]
 
@@ -83,8 +84,11 @@ WSGI_APPLICATION = 'simplemooc.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'amadeus',
+        'USER': 'amadeus',
+        'PASSWORD': 'amadeus',
+        'HOST': '127.0.0.1',
     }
 }
 
@@ -135,3 +139,12 @@ STATICFILES_DIRS = [
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFAULT_FROM_EMAIL = 'admin@admin.com'
 CONTACT_EMAIL = 'contact@admin.com'
+
+# Users
+LOGIN_REDIRECT_URL = 'accounts:edit_user'
+LOGIN_URL = 'login'
+AUTH_USER_MODEL = 'accounts.User'
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'accounts.backends.ModelBackend',
+]
