@@ -12,4 +12,13 @@
 
 {{ course.description|linebreaks }}
 {% endfor %}
+<nav aria-label="Page navigation">
+  <ul class="pagination">
+    {% for page_number in paginator.page_range %}
+    <li{% if page_obj.number == page_number %} class="active"{% endif %}>
+        <a href="?page={{ page_number }}">{{ page_number }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</nav>
 {% endblock %}
