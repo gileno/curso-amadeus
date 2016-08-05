@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load pagination %}
+
 {% block content %}
 <h1>Cursos</h1>
 {% for course in courses %}
@@ -12,13 +14,5 @@
 
 {{ course.description|linebreaks }}
 {% endfor %}
-<nav aria-label="Page navigation">
-  <ul class="pagination">
-    {% for page_number in paginator.page_range %}
-    <li{% if page_obj.number == page_number %} class="active"{% endif %}>
-        <a href="?page={{ page_number }}">{{ page_number }}</a>
-    </li>
-    {% endfor %}
-  </ul>
-</nav>
+{% pagination request paginator page_obj %}
 {% endblock %}

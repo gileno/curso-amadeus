@@ -10,17 +10,16 @@ from .models import Course, Category
 
 class IndexView(generic.ListView):
 
-    queryset = Course.objects.filter(is_approved=True)
     template_name = 'courses/index.html'
     context_object_name = 'courses'
     paginate_by = 1
 
-
-def index(request):
-    context = {
-        'courses': Course.objects.filter(is_approved=True),
-    }
-    return render(request, 'courses/index.html', context)
+    def get_queryset(self):
+        queryset = Course.objects.filter(is_approved=True)
+        q = self.request.GET.get('q', None)
+        if q:
+            queryset = queryset.filter(name__icontains=q)
+        return queryset
 
 
 def course(request, slug):
