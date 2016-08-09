@@ -5,6 +5,9 @@ from django.contrib.auth import views as auth_views
 from core import views
 
 
+handler500 = views.handler500
+
+
 urlpatterns = [
 	url(r'^$', views.IndexView.as_view(), name='index'),
 	url(r'^contact/$', views.contact, name='contact'),

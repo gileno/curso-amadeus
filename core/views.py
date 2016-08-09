@@ -27,3 +27,7 @@ def contact(request):
 		form = ContactForm()
 	context['form'] = form
 	return render(request, "contact.html", context)
+
+
+def handler500(request):
+	return HttpResponse('Deu ruim')

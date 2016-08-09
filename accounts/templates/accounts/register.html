@@ -3,21 +3,27 @@
 {% load widget_tweaks %}
 
 {% block title %}
-    Entrar | {{ block.super }}
+    Registrar | {{ block.super }}
 {% endblock %}
 
 {% block content %}
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
-        <h1>Entrar</h1>
+        <h1>Registrar</h1>
         <form class="form-horizontal" action="" method="post">
             {% csrf_token %}
+            {% if success %}
+            <div class="alert alert-success">
+              Usuário criado com sucesso
+            </div>
+            {% else %}
             {% include "form.html" %}
             <div class="form-group">
                 <div class="col-sm-offset-4 col-sm-8">
-                  <button type="submit" class="btn btn-primary">Entrar</button>
+                  <button type="submit" class="btn btn-primary">Registrar</button>
                 </div>
             </div>
+            {% endif %}
         </form>
     </div>
 </div>

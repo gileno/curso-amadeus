@@ -1,12 +1,13 @@
 # coding=utf-8
 
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
 
 class Category(models.Model):
 
-    name = models.CharField('Nome', max_length=100)
-    slug = models.SlugField('Identificador', max_length=100)
+    name = models.CharField(_('Nome'), max_length=100)
+    slug = models.SlugField(_('Identificador'), max_length=100)
 
     class Meta:
         verbose_name = 'Categoria'

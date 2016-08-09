@@ -25,7 +25,7 @@ SECRET_KEY = 'w4ejkh4n++@e$msjgd#n@(qaqcz&_%qrqf5%-uv@yjn^5dl7co'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,13 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # libs
     'widget_tweaks',
+    'rolepermissions',
     # apps
     'core',
     'accounts',
     'courses',
 ]
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -54,6 +55,8 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+    'core.middleware.log_middleware',
 ]
 
 ROOT_URLCONF = 'simplemooc.urls'
@@ -148,3 +151,5 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'accounts.backends.ModelBackend',
 ]
+
+ROLEPERMISSIONS_MODULE = 'simplemooc.roles'

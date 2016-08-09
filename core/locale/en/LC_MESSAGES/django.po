@@ -1,0 +1,39 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-08-09 16:30-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: core/templates/base.html:28
+msgid "Início"
+msgstr "Home"
+
+#: core/templates/base.html:29 core/templates/base.html:43
+msgid "Cursos"
+msgstr "Courses"
+
+#: core/templates/base.html:33
+msgid "Contato"
+msgstr "Contact"
+
+#: core/templates/base.html:45
+msgid "Sair"
+msgstr "Logout"
+
+#. Translators: Label of a button that triggers search
+#: core/templates/base.html:48
+msgid "Entrar"
+msgstr "Sign In"
