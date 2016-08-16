@@ -5,6 +5,10 @@ from django.views import generic
 from django.http import Http404
 from django.core.paginator import Paginator, EmptyPage
 
+from rest_framework import generics, permissions
+
+from .serializers import CourseSerializer
+
 from .models import Course, Category
 
 
@@ -47,3 +51,13 @@ def category(request, slug):
     context['page_obj'] = page_obj
     context['courses'] = page_obj.object_list
     return render(request, 'courses/category.html', context)
+
+
+class CourseListApiView(generics.ListCreateAPIView):
+
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+    def get_queryset(self):
+        return Course.objects.filter(is_approved=True)

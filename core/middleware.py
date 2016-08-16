@@ -7,9 +7,10 @@ from django.http import HttpResponse
 def log_middleware(get_response):
     def middleware(request):
         # antes de qualquer view
-        if random.randint(1, 10) == 2:
-            return HttpResponse('Deu ruim')
+        # if random.randint(1, 10) == 2:
+        #     return HttpResponse('Deu ruim')
         response = get_response(request)
         # depois de qualquer view
+        response['Access-Control-Allow-Origin'] = '*'
         return response
     return middleware

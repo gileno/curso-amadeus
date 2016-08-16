@@ -2,6 +2,8 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 
+from rest_framework_jwt.views import obtain_jwt_token
+
 from core import views
 
 
@@ -19,4 +21,6 @@ urlpatterns = [
 	url(r'^accounts/', include('accounts.urls', namespace='accounts')),
 	url(r'^', include('courses.urls', namespace='courses')),
     url(r'^admin/', admin.site.urls),
+	url(r'^api/cursos/', include('courses.api_urls', namespace='api_courses')),
+	url(r'^api-token-auth/$', obtain_jwt_token),
 ]

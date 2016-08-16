@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+<body ng-app="CoursesApp">
+    <div ng-controller="CourseListController">
+      <div ng-repeat="course in courses">
+        <h2>
+          {{ course.name }}
+        </h2>
+        <p>
+          {{ course.description }}
+        </p>
+      </div>
+    </div>
+</body>
+</html>
