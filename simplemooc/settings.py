@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'w4ejkh4n++@e$msjgd#n@(qaqcz&_%qrqf5%-uv@yjn^5dl7co'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -139,6 +139,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static')
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
+
 # Email
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFAULT_FROM_EMAIL = 'admin@admin.com'
@@ -163,3 +166,8 @@ REST_FRAMEWORK = {
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
     ),
 }
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass

@@ -1,10 +1,9 @@
 #!/bin/bash
 
-NAME="cursos-amadeus"
-DJANGODIR=/webapps/cursos-amadeus/simplemooc
-APPSDIR=/webapps/cursos-amadeus/simplemooc/apps
-SOCKFILE=/webapps/cursos-amadeus/run/gunicorn.sock
-USER=cursos-amadeus
+NAME="amadeus"
+DJANGODIR=/webapps/amadeus/simplemooc
+SOCKFILE=/webapps/amadeus/run/gunicorn.sock
+USER=amadeus
 NUM_WORKERS=3
 DJANGO_SETTINGS_MODULE=simplemooc.settings
 DJANGO_WSGI_MODULE=simplemooc.wsgi
@@ -14,7 +13,7 @@ echo "Starting $NAME as `whoami`"
 cd $DJANGODIR
 source ../bin/activate
 export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE
-export PYTHONPATH=$DJANGODIR:$APPSDIR:$PYTHONPATH
+export PYTHONPATH=$DJANGODIR:$PYTHONPATH
 
 # Create the run directory if it doesn't exist
 RUNDIR=$(dirname $SOCKFILE)
